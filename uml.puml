@@ -1,0 +1,46 @@
+@startuml calculadora
+
+class Button {
+    + String label
+    + void onClick()
+}
+
+class Display {
+    + String currentValue
+    + void update(value: String)
+}
+
+class Calculator {
+    - Display display
+    - Button[] buttons
+    - Operation operation
+    + void pressButton(label: String)
+    + void executeOperation()
+}
+
+interface Operation {
+    + execute(value1: double, value2: double): double
+}
+
+class Addition implements Operation {
+    + execute(value1: double, value2: double): double
+}
+
+class Subtraction implements Operation {
+    + execute(value1: double, value2: double): double
+}
+
+class Multiplication implements Operation {
+    + execute(value1: double, value2: double): double
+}
+
+class Division implements Operation {
+    + execute(value1: double, value2: double): double
+}
+
+Calculator "1" *-- "1" Display
+Calculator "1" *-- "0..*" Button
+Calculator "1" *-- "1" Operation
+
+
+@enduml
