@@ -1,12 +1,12 @@
-let botones = document.getElementsByClassName("button");
-let botonesArray = Array.from(botones);
+document.addEventListener('DOMContentLoaded', () => {
+    const calculatorInstance = new Calculator(new Display());
 
-botonesArray.forEach(element => {
-    // adicionar una accion al evento click
-    element.addEventListener("mouseover", eventoBoton);
-});
-
-
-function eventoBoton() {
-    console.log("se ha pulsado el boton con valor " + this.dataset.value);
+    const buttonElements = document.querySelectorAll('.button');
+    buttonElements.forEach(buttonElement => {
+        const value = buttonElement.getAttribute('data-value');
+        new Button(buttonElement,() => calculatorInstance.pressButton(value) );
+    });
+    
 }
+
+)
