@@ -1,10 +1,10 @@
 :root {
     --background-color: #000000;
-    --display-bg-color: #333333;
+    --display-bg-color: #000000;
     --display-text-color: #ffffff;
-    --button-bg-color: #505050;
+    --button-bg-color: #333333;
     --button-text-color: #ffffff;
-    --button-special-bg-color: #a5a5a5;
+    --button-special-bg-color: #A5A5A5;
     --button-special-text-color: #000000;
     --button-operation-bg-color: #F1A33B;
     --button-operation-text-color: #ffffff;
@@ -17,7 +17,7 @@ body {
     height: 100vh;
     background-color: var(--background-color);
     margin: 0;
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Arial', sans-serif;
 }
 
 #calculator {
@@ -47,11 +47,13 @@ body {
     background-color: var(--button-bg-color);
     color: var(--button-text-color);
     font-size: 1.5em;
-    padding: 20px;
+    width: 70px;
+    height: 70px;
     text-align: center;
     border: none;
     cursor: pointer;
     border-radius: 50%;
+    padding: 0; /* Remove padding as fixed width/height is used */
 }
 
 .button:hover {
@@ -74,6 +76,8 @@ body {
 
 .button.zero {
     grid-column: span 2;
-    border-radius: 40px; /* Ajustar el borde redondeado para el botón 0 */
-    padding-left: 60px; /* Alinear el texto hacia la izquierda */
+    height: 70px; /* Match other buttons */
+    border-radius: 35px; /* Half of height for pill shape */
+    text-align: left; /* Align text to the left */
+    padding-left: 30px; /* Adjust padding for text position */
 }

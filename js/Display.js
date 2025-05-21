@@ -10,7 +10,10 @@ class Display {
     }
 
     append(value) {
-        if(this.currentValue === '0') {
+        if (value === '.' && this.currentValue.includes('.')) {
+            return; // Do not append if it's a decimal point and one already exists
+        }
+        if (this.currentValue === '0' && value !== '.') { // Avoid "0." becoming "."
             this.currentValue = value;
         } else {
             this.currentValue += value;
